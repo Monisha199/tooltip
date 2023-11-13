@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Tooltip from './Tooltip';
 
 function App() {
+  let position="bottom";
+  let [showTooltip,setShowTooltip]=useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className="" onMouseEnter={() =>setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+        Hover over me !
+      </div>
+      {showTooltip && <Tooltip position={position}/>}
     </div>
   );
 }
